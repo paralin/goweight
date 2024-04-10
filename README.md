@@ -4,11 +4,17 @@
 
 A tool to analyze and troubleshoot a Go binary size.
 
+**This is a fork of the [upstream project].**
+
+[upstream project]: https://github.com/jondot/goweight
+
 For more, see [this blog post](https://medium.com/@jondot/a-story-of-a-fat-go-binary-20edc6549b97#.bzaq4nol0)
 
-✅ Get a breakdown of all modules inside a binary  
-✅ Supports Go 1.11 modules  
-✅ Output as JSON for tracking and/or monitoring as part of CI  
+Features:
+
+✅ Get a breakdown of all modules inside a binary
+✅ Supports Go 1.11 modules
+✅ Output as JSON for tracking and/or monitoring as part of CI
 
 
 ## Quick Start
@@ -19,6 +25,9 @@ For more, see [this blog post](https://medium.com/@jondot/a-story-of-a-fat-go-bi
 $ go get github.com/jondot/goweight
 $ cd current-project
 $ goweight
+
+# Set GOOS
+$ GOOS=js GOARCH=wasm goweight
 ```
 
 ### Without Go Modules - Before Go 1.11
