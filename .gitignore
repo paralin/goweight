@@ -3,3 +3,4 @@ vendor/
 dist/
 goweight
 .vscode/
+.aider*
