@@ -1,7 +1,6 @@
 package pkg
 
 import (
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -17,7 +16,9 @@ import (
 var moduleRegex = regexp.MustCompile("packagefile (.*)=(.*)")
 
 func run(cmd []string) string {
-	out, err := exec.Command(cmd[0], cmd[1:]...).CombinedOutput()
+	c := exec.Command(cmd[0], cmd[1:]...)
+	c.Env = append([]string{}, os.Environ()...)
+	out, err := c.CombinedOutput()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -71,7 +72,7 @@ func (g *GoWeight) Process(work string) []*ModuleEntry {
 	}
 
 	allLines := funk.Uniq(funk.FlattenDeep(funk.Map(files, func(file string) []string {
-		f, err := ioutil.ReadFile(file)
+		f, err := os.ReadFile(file)
 		if err != nil {
 			return []string{}
 		}
