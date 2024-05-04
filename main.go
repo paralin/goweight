@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/jondot/goweight/pkg"
+	"github.com/paralin/goweight/pkg"
 
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
